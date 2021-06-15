@@ -22,12 +22,6 @@ public class Hooks extends TestBase {
     testContext = context;
   }
 
-
-  @Before(order = 1)
-  public void m1() {
-    System.out.println("run before everyscenario-order1");
-  }
-
   @Before(order = 2)
   public void m11() {
     System.out.println("run before everyscenario-order2");
