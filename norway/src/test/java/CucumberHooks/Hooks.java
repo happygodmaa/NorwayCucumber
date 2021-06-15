@@ -33,6 +33,11 @@ public class Hooks extends TestBase {
     System.out.println("run before everyscenario-order2");
   }
 
+  @Before(order = 3)
+  public void m111() {
+    System.out.println("run before everyscenario-order2");
+  }
+
   @After
   public void m2() {
     System.out.println("run after everyscenario");
