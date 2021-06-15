@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">  
+  <test  name="Test">
+    <parameter name="userid" value="nik1" />
+    <parameter name="password" value="pass1" />   
+    <classes>
+       <class name="Pages.LoginPageParametesTest"/>
+      <class name="Pages.DataProviderTest1"/>
+    </classes>
+  </test>
+</suite> 
