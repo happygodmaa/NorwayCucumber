@@ -9,6 +9,7 @@ public class LoginPage extends TestBase {
   private By loginPass = By.cssSelector("#loginpassword");
   private By loginOnPopup = By.cssSelector("button[onclick=\"logIn()\"]");
   private By closeButton = By.xpath("//button[@onclick='logIn()']/preceding-sibling::button");
+  private By closeButton2 = By.xpath("//button[@onclick='logIn2()']/preceding-sibling::button");
 
   public void setup() {
     initialization();
