@@ -16,12 +16,12 @@ public class LoginDatMapStepDef2 {
   }
 
 
-  @Given("User2 navigate to Login Page")
+  @Given("User4 navigate to Login Page")
   public void User2_navigate_to_Login_Page() {
     lp.setup();
   }
 
-  @When("User2 Enters user and password")
+  @When("User4 Enters user and password")
   public void User2_Enters_user_and_password(DataTable credential) {
     List<Map<String, String>> list3 = credential.asMaps();
 
