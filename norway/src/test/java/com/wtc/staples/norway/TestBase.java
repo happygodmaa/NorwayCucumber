@@ -12,6 +12,8 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,7 +26,8 @@ public abstract class TestBase {
   FileInputStream fis;
 
   public TestBase() {
-    path = "\\config.properties";
+    path =
+        "C:\\Users\\nkumar\\git\\NorwayCucumber\\norway\\src\\test\\java\\com\\wtc\\staples\\norway\\Config.properties";
     try {
       fis = new FileInputStream(path);
     } catch (FileNotFoundException e) {
@@ -32,26 +35,58 @@ public abstract class TestBase {
       e.printStackTrace();
     }
     try {
+      prop = new Properties();
       prop.load(fis);
     } catch (IOException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-
   }
 
   public void initialization() {
+    FFInstanceCreation();
 
-    // System.setProperty("webdriver.gecko.driver", "D:\\javaPractice\\selenium\\geckodriver.exe");
-    System.setProperty("webdriver.chrome.driver",
-        "D:\\javaPractice\\selenium\\driver_selenium_grid\\chromedriver.exe");
-    driver = new ChromeDriver();
     wait = new WebDriverWait(driver, 20);
     driver.get(prop.getProperty("url"));
     driver.manage().window().maximize();
     driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
     driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
+  }
+
+  public void ChromeInstanceCreation() {
+    // System.setProperty("webdriver.gecko.driver", "D:\\javaPractice\\selenium\\geckodriver.exe");
+    System.setProperty("webdriver.chrome.driver",
+        "C:\\Users\\nkumar\\git\\NorwayCucumber\\norway\\src\\main\\resources\\profiles\\drivers\\chromedriver_win32_91.0.4472.101\\chromedriver.exe");
+    // Open chrome in Incognito mode
+    /*
+     * ChromeOptions options = new ChromeOptions(); options.addArguments("--incognito");
+     * DesiredCapabilities capabilities = new DesiredCapabilities();
+     * capabilities.setCapability(ChromeOptions.CAPABILITY, options); options.merge(capabilities);
+     * ChromeDriver driver = new ChromeDriver(options);
+     * driver.get("http://demo.guru99.com/test/simple_context_menu.html");
+     * driver.manage().window().maximize();
+     */
+    // accept SSL certificates on websites by default
+    /*
+     * Create an object of desired capabilities class with Chrome driver DesiredCapabilities
+     * SSLCertificate = DesiredCapabilities.chrome(); Set the pre defined capability –
+     * ACCEPT_SSL_CERTS value to true SSLCertificate.setCapability(CapabilityType.ACCEPT_SSL_CERTS,
+     * true); Open a new instance of chrome driver with the desired capability WebDriver driver =
+     * new ChromeDriver(SSLCertificate);
+     */
+    DesiredCapabilities capabilities = new DesiredCapabilities();
+
+    driver = new ChromeDriver();
+
+  }
+
+
+
+  public void FFInstanceCreation() {
+    System.setProperty("webdriver.gecko.driver",
+        "C:\\Users\\nkumar\\git\\NorwayCucumber\\norway\\src\\main\\resources\\profiles\\drivers\\geckodriver.exe");
+    driver = new FirefoxDriver();
   }
 
   public boolean isElementPresent(final By by) {
