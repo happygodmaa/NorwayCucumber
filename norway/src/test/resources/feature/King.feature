@@ -1,4 +1,4 @@
-@king
+@king1
 Feature: king feature bhai
 
 Scenario: king identify
