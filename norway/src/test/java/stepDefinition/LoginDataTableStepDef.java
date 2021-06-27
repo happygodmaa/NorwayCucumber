@@ -19,7 +19,9 @@ public class LoginDataTableStepDef {
     lp.setup();
   }
 
-  @When("User1 Enters <uid> and <pass>")
+  // @When("User1 Enters <uid> and <pass>")
+
+  @When("User1 Enters user and password")
   public void user_enters_uid_and_pass(DataTable credential) {
     List<List<String>> list1 = credential.asLists();
     lp.loginToAccount(list1.get(1).get(0), list1.get(1).get(1));

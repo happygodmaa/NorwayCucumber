@@ -44,9 +44,10 @@ public abstract class TestBase {
   }
 
   public void initialization() {
-    FFInstanceCreation();
-
+    // FFInstanceCreation();
+    ChromeInstanceCreation();
     wait = new WebDriverWait(driver, 20);
+    // driver.get("https://www.google.com");
     driver.get(prop.getProperty("url"));
     driver.manage().window().maximize();
     driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
@@ -85,7 +86,7 @@ public abstract class TestBase {
 
   public void FFInstanceCreation() {
     System.setProperty("webdriver.gecko.driver",
-        "C:\\Users\\nkumar\\git\\NorwayCucumber\\norway\\src\\main\\resources\\profiles\\drivers\\geckodriver.exe");
+        "C:\\Users\\nkumar\\git\\NorwayCucumber\\norway\\src\\main\\resources\\profiles\\drivers\\geckodriver-v0.29.1-win64\\geckodriver.exe");
     driver = new FirefoxDriver();
   }
 

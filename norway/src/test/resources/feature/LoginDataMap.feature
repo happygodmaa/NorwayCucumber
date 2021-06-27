@@ -1,4 +1,4 @@
-@test6
+@test2
 Feature: Login Test
 
 Scenario: Data table complex

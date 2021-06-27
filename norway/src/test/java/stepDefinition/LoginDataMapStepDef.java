@@ -23,7 +23,10 @@ public class LoginDataMapStepDef {
   @When("User2 Enters user and password")
   public void user_enters_user_and_pass(DataTable credential) {
     List<Map<String, String>> list2 = credential.asMaps(String.class, String.class);
-    lp.loginToAccount(list2.get(0).get("userid"), list2.get(0).get("password"));
+
+    for (int i = 0; i < 2; i++) {
+      lp.loginToAccount(list2.get(i).get("userid"), list2.get(i).get("password"));
+    }
   }
 
   @Then("User2 close all browser")
