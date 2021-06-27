@@ -1,12 +1,12 @@
-@test3
-Feature: Login Test
+@test0
+Feature: Login scenario outline Test
 
 Scenario Outline:
-Given User navigate to Login Page
-When User Enters "<uid>" and "<password>"
-Then User close all browser
+Given User0 navigate to Login Page
+When User0 Enters <uid> and <password>
+Then User0 close all browser
 
 Examples:
 |uid|	|password|
-|nik3|	|pwd3|
-|nik2|	|pwd2|
+|nik8|	|pwd3|
+|nik9|	|pwd2|
