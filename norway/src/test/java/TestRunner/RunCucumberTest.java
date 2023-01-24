@@ -5,7 +5,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-    features = "C:\\Users\\nkumar\\git\\NorwayCucumber\\norway\\src\\test\\resources\\feature",
+    features = "src/test/resources/feature",
     glue = "stepDefinition", dryRun = false, tags = "@test1", plugin = {"pretty",
         "html:target/cucumber-reports/cucumber.html", "json:target/cucumber-reports/cucumber.json"
     // ,"com.cucumber.listener.ExtentCucumberFormatter:output/report.html"

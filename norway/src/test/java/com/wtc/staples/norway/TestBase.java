@@ -18,6 +18,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public abstract class TestBase {
   protected WebDriver driver;
   protected WebDriverWait wait;
@@ -27,7 +29,7 @@ public abstract class TestBase {
 
   public TestBase() {
     path =
-        "C:\\Users\\nkumar\\git\\NorwayCucumber\\norway\\src\\test\\java\\com\\wtc\\staples\\norway\\Config.properties";
+        "src\\test\\java\\com\\wtc\\staples\\norway\\Config.properties";
     try {
       fis = new FileInputStream(path);
     } catch (FileNotFoundException e) {
@@ -44,6 +46,7 @@ public abstract class TestBase {
   }
 
   public void initialization() {
+	 
     // FFInstanceCreation();
     ChromeInstanceCreation();
     wait = new WebDriverWait(driver, 20);
@@ -56,10 +59,9 @@ public abstract class TestBase {
   }
 
   public void ChromeInstanceCreation() {
-    // System.setProperty("webdriver.gecko.driver", "D:\\javaPractice\\selenium\\geckodriver.exe");
-    System.setProperty("webdriver.chrome.driver",
-        "C:\\Users\\nkumar\\git\\NorwayCucumber\\norway\\src\\main\\resources\\profiles\\drivers\\chromedriver_win32_91.0.4472.101\\chromedriver.exe");
-    // Open chrome in Incognito mode
+    
+	  WebDriverManager.chromedriver().setup();
+// Open chrome in Incognito mode
     /*
      * ChromeOptions options = new ChromeOptions(); options.addArguments("--incognito");
      * DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -85,9 +87,8 @@ public abstract class TestBase {
 
 
   public void FFInstanceCreation() {
-    System.setProperty("webdriver.gecko.driver",
-        "C:\\Users\\nkumar\\git\\NorwayCucumber\\norway\\src\\main\\resources\\profiles\\drivers\\geckodriver-v0.29.1-win64\\geckodriver.exe");
-    driver = new FirefoxDriver();
+   WebDriverManager.firefoxdriver().setup();
+	  driver = new FirefoxDriver();
   }
 
   public boolean isElementPresent(final By by) {
